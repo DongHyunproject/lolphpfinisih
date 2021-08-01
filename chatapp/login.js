@@ -2,7 +2,7 @@ const form=document.querySelector('.login form'),
     continueBtn = form.querySelector('.button input'),
     errorText = form.querySelector('.error-text');
 
-
+;
 
 
 form.onsubmit =(e)=>{
@@ -16,27 +16,23 @@ continueBtn.onclick=()=>{
         if (xhr.readyState===XMLHttpRequest.DONE){
             if(xhr.status===200){
                 let data=xhr.response; /*url 전달되었는지 반응 보기*/
-/*
+
                 console.log(data);
-*/
-                alert(data);
-
-                /*
-
-                                if (data=="로그인을 성공했습니다."){
-                                    /!*로그인 성공한 경우*!/
-                                    alert(data);
-                                    location.href = "chat.php";/!*채팅창으로 이동*!//!*todo*!/
 
 
-                                }else {
-                                    alert(data);
-                                    /!*로그인 실패한 경우*!//!*
-                                    errorText.textContent=data;
-                                    errorText.style.display="block";*!/
+                if (data==="로그인 성공했습니다"){
+                    /*로그인 성공한 경우*/
+                    alert(data);
+                    location.href = "chat.php";/*채팅창으로 이동*//*todo*/
 
-                                }
-                */
+
+                }else {
+                    alert(data);
+                    /*로그인 실패한 경우*//*
+                    errorText.textContent=data;
+                    errorText.style.display="block";*/
+
+                }
 
             }
         }

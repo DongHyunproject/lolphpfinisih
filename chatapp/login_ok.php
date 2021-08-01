@@ -12,7 +12,7 @@ if(!empty($email)&&!empty($password)){
 		$row=mysqli_fetch_assoc($sql);
 		$_SESSION['unique_id']=$row['nuique_id']; /*다른 php파일에서 이 아이뒤를 쓸거임.*/
 
-		echo "로그인을 성공했습니다.";
+		echo "로그인 성공했습니다";
 
 	}else {
 		echo "이메일 or 비밀번호가 틀렸습니다";
