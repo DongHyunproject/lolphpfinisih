@@ -19,17 +19,17 @@
 <div class="wrapper">
 	<section class="form login">
 		<header>LOL Community 회원가입 </header>
-		<form action="login_ok.php" enctype="multipart/form-data" >
-			<div class="error-text"></div>
+		<form action="login_ok.php" method="post" enctype="multipart/form-data" >
+		<!--	<div class="error-text"></div>-->
 
 
 			<div class="field input">
-				<label>이메일 </label>
-				<input type="text" name="email" placeholder="이메일을 입력하세요">
+				<label>이메일
+				<input type="text" name="email" placeholder="이메일을 입력하세요"> </label>
 			</div>
 			<div class="field input">
-				<label>비밀번호 </label>
-				<input type="password" name="password" placeholder="비밀번호를 입력하세요">
+				<label>비밀번호
+				<input type="password" name="password"  placeholder="비밀번호를 입력하세요"> </label>
 				<i class="fas fa-eye"></i><!--패스워드 비밀번호 눈알 감시표시-->
 			</div>
 
@@ -45,8 +45,11 @@
 	</section>
 
 </div>
-<script src="pass-show-hide.js"></script>
-<script src="login.js"></script>
+<!--<script src="pass-show-hide.js"></script>
+-->
+
+<script src="/chatapp/login.js"></script>
+
 </body>
 
 </html>

@@ -24,28 +24,29 @@
             <div class="error-text"></div>
             <div class="name-details">
                     <div class="field input">
-                        <label>이름: </label>
-                        <input type="text" name="fname"  placeholder="이름을 입력하세요" required>
+                        <label>이름:
+                        <input type="text" name="fname"  placeholder="이름을 입력하세요" required> </label>
                     </div>
                     <div class="field input">
-                        <label>성: </label>
-                        <input type="text" name="lname" placeholder="성을 입력하세요" required>
+                        <label>성:
+                        <input type="text" name="lname" placeholder="성을 입력하세요" required></label>
                     </div>
                 </div>
 
                     <div class="field input">
-                        <label>이메일: </label>
-                        <input type="text" name="email"  placeholder="이메일을 입력하세요" required>
+                        <label>이메일:
+                        <input type="text" name="email"  placeholder="이메일을 입력하세요" required></label>
+                        <input type="hidden" name="isuser" value="0" required><!--관리자면 1, 유저면 0-->
                     </div>
                     <div class="field input">
-                        <label>비밀번호: </label>
-                        <i class="fas fa-eye"></i><!--패스워드 비밀번호 눈알 감시표시-->
-
-                        <input type="password" name="password" placeholder="비밀번호를 입력하세요" required>
+                        <label>비밀번호:
+<!--                        <i class="fas fa-eye"></i>패스워드 비밀번호 눈알 감시표시
+-->
+                        <input type="password" name="password" placeholder="비밀번호를 입력하세요" required></label>
                     </div>
                     <div class="field image"  >
-                        <label>프로필 이미지: </label>
-                        <input type="file" name="profile_img" >
+                        <label>프로필 이미지:
+                        <input type="file" name="profile_img" ></label>
                      </div>
                     <div class="field button">
 
@@ -53,7 +54,7 @@
                     </div>
 
         </form>
-        <div class="link">회원가입을 하셨나요?  <a href="login.php" <!--style="color: blue"-->>로그인하기</div>
+        <div class="link">회원가입을 하셨나요?  <a href="login.php" style="color: blue">로그인하기</div>
 
 
    </section>
