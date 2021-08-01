@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;/*flex박스로 만들겠다*/
+    align-items: center;/*교차축에서 컨텐츠 정렬*/
+    justify-content: center;/*주축에 대해서 중앙정렬*/
+    min-height: 100vh;/*vh,vw는 브라우저의 높이와 폭,*/
+    /*브라우저 높이를 화면의 100% 다 쓰겠다. 이것을 설정해줘야 교차축이 세로축일 때,교차축 기준으로 이동함. */
+    background:white;
+    padding: 0 10px;
+}
+.wrapper{
+    background: whitesmoke;
+    width: 600px;
+    border-radius: 16px;
+    box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+    0 32px 64px -48px rgba(0,0,0,0.5);
+    /*명암, 그림자 넣기*/
+}
+
+/* 로그인 회원가입 CSS code todo*/
+.form{
+    padding: 25px 30px;
+}
+.form header{
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid white;
+}
+.form form{
+    margin: 20px 0;/*위, 오른쪽,아래,왼쪽 순*/
+}
+.form form .error-text{
+    color: darkred/*#721c24*/;
+    background: #f8d7da;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+
+    border: 1px solid #f5c6cb;
+    margin-bottom: 10px;
+}
+.form form .name-details{
+    display: flex;
+    /* 한줄마다 input 칸이 있는걸, 한 줄에 input 2개를 나눠서 쓸 수 있다
+   ex)  이름/ 성을 한 줄로
+  성: 입력칸
+  이름:입력칸
+  > 성 : 입력칸 이름 : 입력칸
+    */
+}
+.form .name-details .field:first-child{
+    /* 한 줄에 2개의 입력칸이 있을 때, 첫번째 입력칸*/
+    margin-right: 10px;
+}
+.form .name-details .field:last-child{
+    /* 한 줄에 2개의 입력칸이 있을 때, 마지막 입력칸*/
+
+    margin-left: 10px;
+}
+.form form .field{
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+
+    position: relative;    /*비밀번호 감시표시 이미지 오른쪽에 하기 위해 제일 먼저 설정해야함*/
+
+
+}
+.form form .field label{
+    margin-bottom: 2px;
+}
+.form form .input input{
+    /*인풋창 글자크기 및 넓이*/
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.form form .field input{
+    outline: none;
+}
+.form form .image input{
+    font-size: 17px;
+}
+.form form .button input{
+    /*회원가입 버튼*/
+    height: 45px;
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    background: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 13px;
+}
+.form form .field i{
+    position: absolute;
+    right: 15px;
+    /*비밀번호 감시표시 이미지 오른쪽에 하기 위해 2번째로 설정해야함*/
+
+    top: 70%;
+    color: #ccc;
+    cursor: pointer;
+    transform: translateY(-50%);/*이게 없으면 입력칸에서 밑쪽에 위치하기 때문에, 중앙에 위치하기 위해서 설정*/
+}
+.form form .field i.active::before{
+    color: #333;
+    content: "\f070";
+}
+.form .link{
+    /*회원가입을 하셨나요? */
+    text-align: center;
+    margin: 10px 0;
+    font-size: 17px;
+}
+.form .link a{
+    /*로그인하기 링크 글자색 원래 파란색에서 검정색*/
+    color: #333;
+}
+.form .link a:hover{
+    /*hover는 가로세로 비율 알아서 맞춰서 이미지를 축소, 확대해줌*/
+    text-decoration: underline;
+}
+
+
+/* Users php파일  CSS code todo*/
+.users{
+    padding: 25px 30px;
+}
+
+.users header,
+.users-list a{
+    display: flex;
+    align-items: center;/*align-items : 교차축 중심으로 */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e6e6e6;/* 자신의 프로필상태창과 다른 사람들프로필 상태창 구분줄*/
+    justify-content: space-between;
+    /* 중심축 기준으로
+    각 요소들 사이의 간격 띄우기*/
+}
+.wrapper img{/*프로필 이미지*/
+    object-fit: cover;
+    border-radius: 50%;
+
+}
+
+.users header .content,
+.users-list a .content{
+    display: flex;
+    align-items: center;
+}
+.users header .content img{
+    height: 50px;
+    width: 50px;
+}
+.users header .details,
+.users-list a .details{
+    margin-left: 15px;
+    color: black;
+}
+.users header .details span,
+.users-list a .details span{
+    font-size: 18px;
+    font-weight: 500;
+}
+.users header .logout{
+    color: #fff;
+    font-size: 17px;
+    padding: 7px 15px;
+    background: #333;
+    border-radius:5px;
+
+}
+.users .search{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    /**/
+
+}
+
+.users .search .text{
+    font-size:  18px;
+}
+
+.users .search input{
+    position: absolute;
+    height: 42px;
+    width: calc(100% - 50px);
+    font-size: 16px;
+    padding: 0 13px;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 5px 0 0 5px;
+
+}
+.users .search button{
+    position: relative;
+    z-index: 1;
+    width: 47px;
+    height: 42px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #333;
+
+    font-size: 17px;
+    cursor: pointer;
+
+    border-radius: 0 5px 5px 0;
+}
+.users-list{
+    max-height: 350px;
+    overflow-y: auto;
+}
+.users-list::-webkit-scrollbar{
+
+    width: 0px; /*스크롤바 투명하게 만들기*/
+
+}
+.users-list a{
+    margin-bottom: 15px;
+    padding-right: 15px;
+    page-break-after: always;
+    border-bottom-color: #f1f1f1;
+}
+.users-list a .content p{
+    /*메시지 내용 글자 회색깔로 바꾸기*/
+    color: grey;
+}
+
+.users-list a .status-dot.offline{
+    /*php에서 오프라인 상태일때 보여줄 상태표시, 회색 */
+    color:#ccc;
+}
+
+.users-list a .content img{
+    height: 40px;
+    width: 40px;
+}
+.users-list a .content,
+.users-list a .status-dot{
+    font-size: 12px;
+    color: #468669;
+}
+.users .search input.show{
+    opacity: 1;
+    pointer-events: auto;
+}
+.users-list a:last-child{
+    border:none;/*테두리 기본값이 none임*/
+    margin-bottom: 0px;
+}
+
+
+/* Chat Area CSS Start todo*/
+.chat-area header{
+    display: flex;
+    align-items: center;
+    padding: 18px 30px;
+    background:#7abaff;
+}
+
+.chat-area header .back-icon{
+    color: grey;
+    font-size: 18px;
+}
+.chat-area header img{
+    height: 45px;
+    width: 45px;
+    margin: 0 15px;
+
+}
+
+.chat-area header span {
+    font-size: 17px;
+    font-weight: 500;
+}
+.chat-box{
+    max-height: 500px;
+    padding: 10px 30px 20px 30px;
+    background:white;
+    overflow-y: auto;
+
+}
+.chat-box .chat{
+    margin : 15px 0;
+}
+.chat-box .chat p{
+    padding : 10px 10px;
+    word-wrap: break-word;
+    /*
+
+    !* 메시지가 띄워쓰기 없이 한 글자
+    (끊어질 수 없는 문자열을 끊을 때 사용
+    (ex)한글의 경우에 ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴ해도 띄워쓰기가 자동으로 포함되어있어서 상관없지만,
+     영어의 경우에 ssssssssssssssssssss 길게하면 레이아웃을 벗어나서까지 나온다.
+     이런 경우 자동 줄바꿈 해줌.
+     )*!
+word-wrap 속성값
+normal: 기본값으로, 글자가 길어도 끊어지지 않고 한 줄에 계속 표시
+
+
+break-word: 강제로 끊어서 줄바꿈 함
+
+    */
+
+}
+.chat-box .outgoing{
+    display: flex;
+
+}
+.outgoing .details{
+    margin-left: auto;
+
+    max-width:80%;
+
+        /*-webkit-calc(100% - 130px);*/
+
+    /* 나는 크롬에서 안되서 크롬에서 적용가능한 이걸로 사용했다.
+    width : 95%; !* 구식 브라우저를 위한 대비책(fallback) *!
+    width : -webkit-calc(100% - 20px); !* for Chrome, Safari *!
+    width :    -moz-calc(100% - 20px); !* for Firefox *!
+    width :         calc(100% - 20px); !* for IE *!
+    */
+
+}
+
+.outgoing .details p{
+    background: yellow;
+    color: black;
+    border-radius: 18px 18px 18px 18px;
+
+}
+
+
+.chat-box .incoming{
+
+    display: flex;
+    align-items:flex-start;/*메시지 왼쪽편에 이미지가 메시지 창 높이 상단에 위치하도록*/
+
+    margin-right: auto;
+    max-width: 80%;
+}
+.chat-box .incoming img{
+    height: 35px;
+    width:35px;
+}
+
+.incoming .details {
+margin-left: 5px;
+}
+
+.incoming .details p {
+    background: black;
+    color: white;
+    margin-right: auto;
+    max-width: -webkit-calc(100% - 130px);
+
+    border-radius: 18px 18px 18px 18px;
+}
+
+.chat-box::-webkit-scrollbar{
+
+    width: 0px; /*스크롤바 투명하게 만들기*/
+
+}
+.chat-area .typing-area{
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.typing-area input{
+height: 30px;
+width:100%;
+    margin-right: 5px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px white;
+
+
+}
+.message-submit-button{
+    background: yellow;
+    border: none;
+    outline: none;
+    width: 40px;
+}

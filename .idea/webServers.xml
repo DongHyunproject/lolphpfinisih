@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ed5e3a10-892d-41c9-89fa-fb9877c403a5" name="god">
+        <fileTransfer accessType="SFTP" host="127.0.0.1" port="22" sshConfigId="53105563-6963-49c3-9881-b51cd849ec2e" sshConfig="root@127.0.0.1:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="482ff47d-cbf9-4478-8a03-5588f7faa839" name="test" url="http://127.0.0.1">
+        <fileTransfer rootFolder="/usr/local/apache2.4/htdocs" accessType="SFTP" host="127.0.0.1" port="22" sshConfigId="53105563-6963-49c3-9881-b51cd849ec2e" sshConfig="root@127.0.0.1:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;/*flex박스로 만들겠다*/
+    align-items: center;/*교차축에서 컨텐츠 정렬*/
+    justify-content: center;/*주축에 대해서 중앙정렬*/
+    min-height: 100vh;/*vh,vw는 브라우저의 높이와 폭,*/
+    /*브라우저 높이를 화면의 100% 다 쓰겠다. 이것을 설정해줘야 교차축이 세로축일 때,교차축 기준으로 이동함. */
+    background:white;
+    padding: 0 10px;
+}
+.wrapper{
+    background: whitesmoke;
+    width: 600px;
+    border-radius: 16px;
+    box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+0 32px 64px -48px rgba(0,0,0,0.5);
+    /*명암, 그림자 넣기*/
+}
+
+/* 로그인 회원가입 CSS code todo*/
+.form{
+    padding: 25px 30px;
+}
+.form header{
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid whitesmoke;
+}
+.form form{
+    margin: 20px 0;/*위, 오른쪽,아래,왼쪽 순*/
+}
+.form form .error-text{
+    color: red/*#721c24*/;
+    background: white;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+
+    border: 1px solid white;
+    margin-bottom: 10px;
+}
+.form form .name-details{
+    display: flex;
+    /* 한줄마다 input 칸이 있는걸, 한 줄에 input 2개를 나눠서 쓸 수 있다
+   ex)  이름/ 성을 한 줄로
+  성: 입력칸
+  이름:입력칸
+  > 성 : 입력칸 이름 : 입력칸
+    */
+}
+.form .name-details .field:first-child{
+    /* 한 줄에 2개의 입력칸이 있을 때, 첫번째 입력칸*/
+    margin-right: 10px;
+}
+.form .name-details .field:last-child{
+    /* 한 줄에 2개의 입력칸이 있을 때, 마지막 입력칸*/
+
+    margin-left: 10px;
+}
+.form form .field{
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+
+    position: relative;    /*비밀번호 감시표시 이미지 오른쪽에 하기 위해 제일 먼저 설정해야함*/
+
+
+}
+.form form .field label{
+    margin-bottom: 2px;
+}
+.form form .input input{
+    /*인풋창 글자크기 및 넓이*/
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.form form .field input{
+    outline: none;
+}
+.form form .image input{
+    font-size: 17px;
+}
+.form form .button input{
+    /*회원가입 버튼*/
+    height: 45px;
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    background: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 13px;
+}
+.form form .field i{
+    position: absolute;
+    right: 15px;
+    /*비밀번호 감시표시 이미지 오른쪽에 하기 위해 2번째로 설정해야함*/
+
+    top: 70%;
+    color: #ccc;
+    cursor: pointer;
+    transform: translateY(-50%);/*이게 없으면 입력칸에서 밑쪽에 위치하기 때문에, 중앙에 위치하기 위해서 설정*/
+}
+.form form .field i.active::before{
+    color: #333;
+    content: "\f070";
+}
+.form .link{
+    /*회원가입을 하셨나요? */
+    text-align: center;
+    margin: 10px 0;
+    font-size: 17px;
+}
+.form .link a{
+/*로그인하기 링크 글자색 원래 파란색에서 검정색*/
+    color: #333;
+}
+.form .link a:hover{
+    /*hover는 가로세로 비율 알아서 맞춰서 이미지를 축소, 확대해줌*/
+    text-decoration: underline;
+}
+
+
+/* Users php파일  CSS code todo*/
+.users{
+    padding: 25px 30px;
+}
+
+.users header,
+.users-list a{
+    display: flex;
+    align-items: center;/*align-items : 교차축 중심으로 */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e6e6e6;/* 자신의 프로필상태창과 다른 사람들프로필 상태창 구분줄*/
+    justify-content: space-between;
+    /* 중심축 기준으로
+    각 요소들 사이의 간격 띄우기*/
+}
+.wrapper img{/*프로필 이미지*/
+    object-fit: cover;
+    border-radius: 50%;
+
+}
+
+.users header .content,
+.users-list a .content{
+    display: flex;
+    align-items: center;
+}
+.users header .content img{
+    height: 50px;
+    width: 50px;
+}
+.users header .details,
+.users-list a .details{
+    margin-left: 15px;
+    color: black;
+}
+.users header .details span,
+.users-list a .details span{
+    font-size: 18px;
+    font-weight: 500;
+}
+.users header .logout{
+    color: #fff;
+    font-size: 17px;
+    padding: 7px 15px;
+    background: #333;
+    border-radius:5px;
+
+}
+.users .search{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    /**/
+
+}
+
+.users .search .text{
+    font-size:  18px;
+}
+
+.users .search input{
+    position: absolute;
+    height: 42px;
+    width: calc(100% - 50px);
+    font-size: 16px;
+    padding: 0 13px;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 5px 0 0 5px;
+
+}
+.users .search button{
+    position: relative;
+    z-index: 1;
+    width: 47px;
+    height: 42px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #333;
+
+    font-size: 17px;
+    cursor: pointer;
+
+    border-radius: 0 5px 5px 0;
+}
+.users-list{
+max-height: 350px;
+    overflow-y: auto;
+}
+.users-list::-webkit-scrollbar{
+
+    width: 0px; /*스크롤바 투명하게 만들기*/
+
+}
+.users-list a{
+    margin-bottom: 15px;
+    padding-right: 15px;
+    page-break-after: always;
+    border-bottom-color: #f1f1f1;
+}
+.users-list a .content p{
+    /*메시지 내용 글자 회색깔로 바꾸기*/
+    color: grey;
+}
+
+.users-list a .status-dot.offline{
+    /*php에서 오프라인 상태일때 보여줄 상태표시, 회색 */
+    color:#ccc;
+}
+
+.users-list a .content img{
+    height: 40px;
+    width: 40px;
+}
+.users-list a .content,
+.users-list a .status-dot{
+    font-size: 12px;
+    color: #468669;
+}
+.users .search input.show{
+    opacity: 1;
+    pointer-events: auto;
+}
+.users-list a:last-child{
+    border:none;/*테두리 기본값이 none임*/
+    margin-bottom: 0px;
+}
+
+
+/* Chat Area CSS Start todo*/
+.chat-area header{
+    display: flex;
+    align-items: center;
+    padding: 18px 30px;
+}
+
+.chat-area header .back-icon{
+    color: #333;
+    font-size: 18px;
+}
+.chat-area header img{
+    height: 45px;
+    width: 45px;
+    margin: 0 15px;
+}
+.chat-area header span{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.chat-box{
+    height: 500px;
+
+    padding: 10px 30px 20px 30px;
+    background: #f7f7f7;
+/*    box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%),
+    inset 0 -32px 32px -32px rgb(0 0 0 / 5%);*/
+}
+
+/*
+
+.details span{
+    font-size: 17px;
+    font-weight: 500;}
+*/
+
+.chat-box .text{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: calc(100% - 50px);
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+.chat-box .chat{
+    margin: 15px 0;
+}
+.chat-box .chat p{
+    word-wrap: break-word;
+    padding: 8px 16px;
+
+}
+.chat-box .outgoing{
+    display: flex;
+}
+.chat-box .outgoing .details{
+    margin-left: auto;
+    max-width: calc(100% - 130px);
+}
+.outgoing .details p{
+    background: #333;
+    color: #fff;
+    border-radius: 18px 18px 0 18px;
+}
+.chat-box .incoming{
+    display: flex;
+    align-items: flex-end;
+}
+.chat-box .incoming img{
+    height: 35px;
+    width: 35px;
+}
+.chat-box .incoming .details{
+    margin-right: auto;
+    margin-left: 10px;
+    max-width: calc(100% - 130px);
+}
+.incoming .details p{
+    background: #fff;
+    color: #333;
+    border-radius: 18px 18px 18px 0;
+}
+.typing-area{
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.typing-area input{
+    height: 45px;
+    width: calc(100% - 58px);
+    font-size: 16px;
+    padding: 0 13px;
+    border: 1px solid #e6e6e6;
+    outline: none;
+    border-radius: 5px 0 0 5px;
+}
+.typing-area button{
+    color: #fff;
+    width: 55px;
+    border: none;
+    outline: none;
+    background: #333;
+    font-size: 19px;
+    cursor: pointer;
+    opacity: 0.7;
+    pointer-events: none;
+    border-radius: 0 5px 5px 0;
+    transition: all 0.3s ease;
+}
+.typing-area button.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Responive media query todo */
+@media screen and (max-width: 450px) {
+    .form, .users{
+        padding: 20px;
+    }
+    .form header{
+        text-align: center;
+    }
+    .form form .name-details{
+        flex-direction: column;
+    }
+    .form .name-details .field:first-child{
+        margin-right: 0px;
+    }
+    .form .name-details .field:last-child{
+        margin-left: 0px;
+    }
+
+    .users header img{
+        height: 45px;
+        width: 45px;
+    }
+    .users header .logout{
+        padding: 6px 10px;
+        font-size: 16px;
+    }
+    :is(.users, .users-list) .content .details{
+        margin-left: 15px;
+    }
+
+    .users-list a{
+        padding-right: 10px;
+    }
+
+    .chat-area header{
+        padding: 15px 20px;
+    }
+    .chat-box{
+        min-height: 400px;
+        padding: 10px 15px 15px 20px;
+    }
+    .chat-box .chat p{
+        font-size: 15px;
+    }
+    .chat-box .outogoing .details{
+        max-width: 230px;
+    }
+    .chat-box .incoming .details{
+        max-width: 265px;
+    }
+    .incoming .details img{
+        height: 30px;
+        width: 30px;
+    }
+    .chat-area form{
+        padding: 20px;
+    }
+    .chat-area form input{
+        height: 40px;
+        width: calc(100% - 48px);
+    }
+    .chat-area form button{
+        width: 45px;
+    }
+}

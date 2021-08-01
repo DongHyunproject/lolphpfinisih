@@ -1,0 +1,14 @@
+.outgoing{
+    background: red;
+}
+.chat-box{
+    background: deeppink;
+
+}
+.chat-box .outgoing{
+    display: flex;
+    background: blue;
+}
+.chat-box .chat{
+    background: green;
+}
