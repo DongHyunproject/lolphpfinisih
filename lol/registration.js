@@ -23,12 +23,12 @@ continueBtn.onclick=()=>{
                 switch (data) {
                     case "success":
                         alert(data);
-                        location.href="/lol/login.php"/*todo*/
+                        location.href="login.php"/*todo*/
 
                         break;
                     case "회원가입이 성공하였습니다.":
                         alert(data);
-                        location.href="/lol/login.php"/*todo*/
+                        location.href="login.php"/*todo*/
                         break;
 
                     default:   alert(data);

@@ -1,5 +1,5 @@
 <?php
-echo date("Y-m-d H:i:s") . "\n";
+
 session_start();
 /*echo "php파일로부터 데이터 들고옴";*/
 

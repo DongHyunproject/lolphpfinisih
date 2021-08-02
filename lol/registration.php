@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>채팅</title>
-    <link rel="stylesheet"href="/chatapp/style.css">
+    <title>lol 회원가입</title>
+    <link rel="stylesheet"href="/lol/style.css">
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
 
@@ -74,8 +74,9 @@
 
     </section>
 </div>
-<script src="pass-show-hide.js"></script>
-<script src="signup.js"></script>
+<!--<script src="pass-show-hide.js"></script>
+-->
+<script src="registration.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
 
 <script>
