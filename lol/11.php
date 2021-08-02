@@ -8,6 +8,8 @@
 
 
 <?php
+// 서울 시간 세팅
+echo date("Y-m-d H:i:s") . "\n";
 
 error_reporting( E_ALL );
 ini_set( "display_errors", 1 );

@@ -19,23 +19,38 @@ continueBtn.onclick=()=>{
 /*
                console.log(data);
 */
-               if (data==="success"){
-                   location.href="login.php"/*todo*/
+
+               switch (data) {
+                   case "success":
+                       alert(data);
+                       location.href="/chatapp/login.php"/*todo*/
+
+                       break;
+                   case "회원가입이 성공하였습니다.":
+                       alert(data);
+                       location.href="/chatapp/login.php"/*todo*/
+                       break;
+
+                   default:   alert(data);
+                       break;
+               }
+             /*  if (data==="success"){
+                   location.href="login.php"/!*todo*!/
                    alert('회원가입 성공');
 
                }else {
                    if (data==="회원가입이 성공하였습니다."){
                        alert(data);
-                       location.href="login.php"/*todo*/
+                       location.href="login.php"/!*todo*!/
                    }
                    else {
                        alert(data);
                    }
 
-                  /* errorText.textContent=data;
-                   errorText.style.display="block";*/
+                  /!* errorText.textContent=data;
+                   errorText.style.display="block";*!/
 
-               }
+               }*/
 
            }
         }

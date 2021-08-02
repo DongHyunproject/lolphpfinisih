@@ -5,9 +5,11 @@ $connection=mysqli_connect("localhost", "root","ehdgus48350","chatapp");
 
 $email =  $_POST['email'];
 $password = $_POST['password'];
+$password_hash=hash("sha256",$password);
+
 
 if(!empty($email)&&!empty($password)){
-	$sql=mysqli_query($connection, "SELECT * FROM chatapp.users where email='{$email}' AND password='{$password}'");
+	$sql=mysqli_query($connection, "SELECT * FROM chatapp.users where email='{$email}' AND password='{$password_hash}'");
 	if(mysqli_num_rows($sql)>0){
 		$row=mysqli_fetch_assoc($sql);
 		$_SESSION['unique_id']=$row['nuique_id']; /*다른 php파일에서 이 아이뒤를 쓸거임.*/

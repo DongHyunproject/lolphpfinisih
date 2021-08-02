@@ -1,5 +1,5 @@
 <?php
-include  $_SERVER['DOCUMENT_ROOT']."/howtoboard/db.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/howtoboard/db.php";
 error_reporting( E_ALL );
 ini_set( "display_errors", 1 );
 
@@ -15,7 +15,7 @@ $sql = query("insert into member (id,pw,email) values('".$userid."','".$userpw."
 <head>
 	<meta charset="utf-8" />
 	<title>회원가입 및 로그인 사이트</title>
-	<link rel="stylesheet" type="text/css" href="/member/common.css" />
+	<link rel="stylesheet" type="text/css" href="/test/member/common.css" />
 </head>
 <body>
 <meta charset="utf-8" />

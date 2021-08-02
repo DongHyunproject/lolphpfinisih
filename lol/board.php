@@ -1,5 +1,5 @@
 <?php
-include  $_SERVER['DOCUMENT_ROOT']."/lol/navbar.php";
+include  $_SERVER['DOCUMENT_ROOT']."/lol/navbar2.php";
 
 
 session_start();

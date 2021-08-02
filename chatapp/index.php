@@ -1,4 +1,5 @@
 <?php
+
 ?>
 
 <!DOCTYPE html>
@@ -21,11 +22,13 @@
     <section class="form signup">
         <header>LOL Community 회원가입 </header>
         <form action="signup.php" method="post" enctype="multipart/form-data">
-            <div class="error-text"></div>
-            <div class="name-details">
+<!--            <div class="error-text"></div>
+-->            <div class="name-details">
                     <div class="field input">
                         <label>이름:
-                        <input type="text" name="fname"  placeholder="이름을 입력하세요" required> </label>
+                        <input type="text" name="fname" id="fname" oninput="checkUserName()" placeholder="이름을 입력하세요" required>
+                            <span id="check_username"></span>
+                        </label>
                     </div>
                     <div class="field input">
                         <label>성:
@@ -35,15 +38,27 @@
 
                     <div class="field input">
                         <label>이메일:
-                        <input type="text" name="email"  placeholder="이메일을 입력하세요" required></label>
+                        <input type="text" name="email" id="email"  placeholder="이메일을 입력하세요" oninput="email_vaild_check()" required></label>
                         <input type="hidden" name="isuser" value="0" required><!--관리자면 1, 유저면 0-->
+                        <span id="email_check"></span>
+
                     </div>
                     <div class="field input">
                         <label>비밀번호:
 <!--                        <i class="fas fa-eye"></i>패스워드 비밀번호 눈알 감시표시
 -->
-                        <input type="password" name="password" placeholder="비밀번호를 입력하세요" required></label>
+                        <input type="text" name="password" id="password" oninput="password_vaild_check()" placeholder="비밀번호를 입력하세요" required></label>
+                        <span id="password_check"></span>
+
                     </div>
+            <div class="field input">
+                <label>비밀번호 확인:
+                    <!--                        <i class="fas fa-eye"></i>패스워드 비밀번호 눈알 감시표시
+					-->
+                    <input type="text" name="password2" id="password2"  placeholder="비밀번호를 입력하세요" required></label>
+                <span id="password_check2"></span>
+
+            </div>
                     <div class="field image"  >
                         <label>프로필 이미지:
                         <input type="file" name="profile_img" ></label>
@@ -61,7 +76,65 @@
 </div>
 <script src="pass-show-hide.js"></script>
 <script src="signup.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
 
+<script>
+    function checkUserName() {
+/*아이뒤 중복체크*/
+        jQuery.ajax({
+            url: "check_availabilty.php",
+            data:'fname='+$("#fname").val(),
+            type: "POST",
+            success:function(data){
+                $("#check_username").html(data);
+            },
+            error:function (){}
+        });
+    }
+
+
+    function password_vaild_check(){/*비밀번호 유효성 검사*/
+
+        jQuery.ajax({
+            url: "check_availabilty.php",
+            data:'password='+$("#password").val(),
+            type: "POST",
+            success:function(data){
+                $("#password_check").html(data);
+            },
+            error:function (){}
+        });
+
+
+
+    }
+    function password_double_check2(){/* 위 비밀번호랑 일치하는지 확인 */
+        jQuery.ajax({
+            url: "check_availabilty.php",
+            data:['password2='+$("#password2").val(),'password1='+$("#password1").val()],
+            type: "POST",
+            success:function(data){
+                $("#password_check2").html(data);
+            },
+            error:function (){}
+        });
+
+
+    }
+    function email_vaild_check(){
+        jQuery.ajax({
+            url: "check_availabilty.php",
+            data:'email='+$("#email").val(),
+            type: "POST",
+            success:function(data){
+                $("#email_check").html(data);
+            },
+            error:function (){}
+        });
+
+    }
+
+</script>
 </body>
 
 </html>

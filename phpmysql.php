@@ -1,4 +1,12 @@
 <?php
+
+date_default_timezone_set('Asia/Seoul');
+
+$times = mktime();
+$write_date = date( "Y-m-d H:i:s");
+
+echo "$write_date";
+
 error_reporting( E_ALL );
 ini_set( "display_errors", 1 );
 $host = 'localhost';

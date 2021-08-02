@@ -60,7 +60,7 @@ include './howtoboard/navbar.php';
 			</div>
 			<div class="btn_area">
 				<input type="submit" value="가입하기" id="btnJoin"
-				       onclick="location.href='/howtoboard/login.php'"
+				       onclick="location.href='../../howtoboard/login.php'"
 				>
 				<!--  <button type="button"  id="btnJoin"
 						  onclick="location.href='/example/real_login.html'"

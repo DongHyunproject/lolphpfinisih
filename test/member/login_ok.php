@@ -1,6 +1,6 @@
 <meta charset="utf-8" />
 <?php
-include  $_SERVER['DOCUMENT_ROOT']."/howtoboard/db.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/howtoboard/db.php";
 error_reporting( E_ALL );
 ini_set( "display_errors", 1 );
 
@@ -23,7 +23,7 @@ if($_POST["userid"] == "" || $_POST["userpw"] == ""){
 		$_SESSION['userid'] = $member["id"];
 		$_SESSION['userpw'] = $member["pw"];
 
-		echo "<script>alert('로그인되었습니다.'); location.href='/member/main.php';</script>";
+		echo "<script>alert('로그인되었습니다.'); location.href='main.php';</script>";
 	}else{ // 비밀번호가 같지 않다면 알림창을 띄우고 전 페이지로 돌아갑니다
 		echo "<script>alert('아이디 혹은 비밀번호를 확인하세요.'); history.back();</script>";
 	}

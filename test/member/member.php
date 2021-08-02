@@ -1,5 +1,5 @@
 <?php
-include  $_SERVER['DOCUMENT_ROOT']."/howtoboard/db.php"; ?>
+include $_SERVER['DOCUMENT_ROOT'] . "/howtoboard/db.php"; ?>
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,7 +8,7 @@ include  $_SERVER['DOCUMENT_ROOT']."/howtoboard/db.php"; ?>
 	<title>회원가입 폼</title>
 </head>
 <body>
-<form style="margin: auto;" method="post" action="/member/member_ok.php">
+<form style="margin: auto;" method="post" action="/test/member/member_ok.php">
 	<h1>회원가입 폼</h1>
 	<fieldset>
 		<legend>입력사항</legend>
