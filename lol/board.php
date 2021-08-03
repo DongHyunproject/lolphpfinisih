@@ -42,9 +42,12 @@ session_start();
 <body>
 <div  class="container">
 
+	<?php if((!isset($_SESSION['loginid'])) && (!isset($_SESSION['email'])) ) {?>
 
-<button style="float: right; margin-right: " onclick="location.href='board_create.php'"  name="create_button" class="btn btn-success" >글쓰기</button>
-
+	<?php  } else {?>
+    <button style="float: right; margin-right: " onclick="location.href='board_create.php'"  name="create_button" class="btn btn-success" >글쓰기</button>
+	<?php  }
+?>
 
 <div class="container " style="margin-top: 100px; width:1000px " >
 	<div class="row">

@@ -66,8 +66,8 @@ if($isuser==1){
 							/* 이미지 확장자 'glf','png','jpg','jpeg' 일 경우 */
 
 							$query = "INSERT INTO lol.member
-    ( loginid, password, profile_img, signup_date, isuser)
-    values ('$loginid','$password_hash','$image_path','$write_date','$isuser')";
+    ( loginid, password, profile_img, signup_date, isuser,email)
+    values ('$loginid','$password_hash','$image_path','$write_date','$isuser','$email')";
 
 
 							$query_run = mysqli_query( $connection, $query );
@@ -93,8 +93,8 @@ if($isuser==1){
 					} else {/*이미지 없을 경우*/
 						$image_path='';
 						$query = "INSERT INTO lol.member
-    ( loginid, password, profile_img, signup_date, isuser)
-    values ('$loginid','$password_hash','$image_path','$write_date','$isuser')";
+    ( loginid, password, profile_img, signup_date, isuser,email)
+    values ('$loginid','$password_hash','$image_path','$write_date','$isuser','$email')";
 
 
 						$query_run = mysqli_query( $connection, $query );

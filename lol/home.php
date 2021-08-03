@@ -1,7 +1,6 @@
 <?php
-$id_to_main = $_POST['id_to_main'];
-$pswd1 = $_POST['pswd1'];
-$pswd1_to_main = $_POST['pswd1_to_main'];
+
+include  $_SERVER['DOCUMENT_ROOT']."/lol/navbar2.php";
 
 ?>
 
@@ -59,41 +58,13 @@ $pswd1_to_main = $_POST['pswd1_to_main'];
 
 </head>
 <body>
-<p> "<?php echo $id_to_main ?>님이 로그인 하셨습니다."</p>
-
-<ul>
-	<li><a  onclick="location.href='/lol/home.php'"
-	        class="active" href="/lol/home.php">Home</a></li>
-
-	<li><a  onclick="location.href='/lol/board.php'"
-	        href="/lol/board.php">Community</a></li>
-	    <li><a href="#contact" onclick="location.href='#'">Mypage</a></li>
-
-	<li><a href="#"  onclick="location.href='/howtoboard/tt2.html'">전적검색</a></li>
-
-	<ul>   <button type="button" class="btn btn-dark" style="float: right;"
-	               onclick="location.href='/howtoboard/login.php'">로그인</button>
-
-
-
-		<button type="button" class="btn btn-dark" style="float: right;"
-		        onclick="location.href='/howtoboard/registration.php'">회원가입</button>
-
-	</ul>
-
-
-</ul>
-
-<div class="jumbotron text-center">
-	<h1>LoL Community</h1>
-	<p></p>
-</div>
 
 
 <!--content-->
 
 
 <!--carousel-->
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 	<ol class="carousel-indicators">
 		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -127,7 +98,7 @@ $pswd1_to_main = $_POST['pswd1_to_main'];
 <div>
 	<div class=text-center>
 		<hr/>
-		<p> 2020-04-20, LoL Community</p>
+		<p> 2021-08-04, LoL Community</p>
 	</div>
 
 

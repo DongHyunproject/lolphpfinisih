@@ -13,8 +13,6 @@ $con=mysqli_connect("localhost","root","ehdgus48350","lol");
 }
 */
 
-echo "1. ";
-
 if(isset($_POST['save_image'])){
 
 
@@ -30,22 +28,24 @@ if(isset($_POST['save_image'])){
 	$allowed_extension=array('glf','png','jpg','jpeg');
 	$filename=$img;
 	$file_extension=pathinfo($filename,PATHINFO_EXTENSION);
-	if(!in_array($file_extension,$allowed_extension)){
-		/* 이미지 확장자 'glf','png','jpg','jpeg' 가 아닐경우 */
 
-echo "<script>
+	if($img){
+		if(!in_array($file_extension,$allowed_extension)){
+			/* 이미지 확장자 'glf','png','jpg','jpeg' 가 아닐경우 */
+
+			echo "<script>
     alert('glf,png,jpg,jpeg만 등록가능합니다.');
     location.href='board_create.php';</script>";
 
-/*		$_SESSION['status']="'glf','png','jpg','jpeg'만 등록가능합니다.";*/
-/*		header('Location: board_create.php');*/
+			/*		$_SESSION['status']="'glf','png','jpg','jpeg'만 등록가능합니다.";*/
+			/*		header('Location: board_create.php');*/
 
-	}else {
-		/* 이미지 확장자 'glf','png','jpg','jpeg' 일 경우 */
+		}else {
+			/* 이미지 확장자 'glf','png','jpg','jpeg' 일 경우 */
 
 			$query="INSERT INTO lol.board
     ( title, content, writer, wrtie_date, img)
-    values ('$title','$content ','$writer ','$write_date','$image_path')";
+    values ('$title','$content','$writer','$write_date','$image_path')";
 
 
 			$query_run=mysqli_query($con,$query);
@@ -54,23 +54,50 @@ echo "<script>
 			if($query_run){
 				move_uploaded_file($_FILES["profile_img"]["tmp_name"],$image_path);
 				echo "<script>
-    alert('이미지 저장을 완료했습니다');</script>";
-			/*	$_SESSION['status']="이미지 저장 완료";
-				header('Location: board.php');*/
+    alert('글쓰기를 완료했습니다');
+    location.href='board.php';
+    </script>";
+				/*	$_SESSION['status']="이미지 저장 완료";
+					header('Location: board.php');*/
 
 			}
 			else {
 				echo "<script>
     alert('이미지 저장을 실패했습니다');
+        location.href='board.php';
+
    </script>";
-			/*	$_SESSION['status']="이미지 저장 실패";
-				header('Location: board_create.php');*/
+				/*	$_SESSION['status']="이미지 저장 실패";
+					header('Location: board_create.php');*/
 
 			}
 
 
 
+		}
+ }else {/*이미지가 없을 경우*/
+		$image_path="profile55.png";
+		$query="INSERT INTO lol.board
+    ( title, content, writer, wrtie_date,img)
+    values ('$title','$content','$writer','$write_date','$image_path')";
+
+
+		$query_run=mysqli_query($con,$query);
+		if($query_run){
+			echo "<script>
+    alert('글쓰기를 완료했습니다');
+    location.href='board.php';
+    </script>";
+  }else {
+			echo "<script>
+    alert('서버 데이터연결에 문제가 발생했습니다');
+    location.href='board.php';
+    </script>";
+  }
+
 	}
+
+
 
 }
 

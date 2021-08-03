@@ -26,7 +26,7 @@ session_start();
         #bo_line{
             width:250px;
             height:2px;
-            background: black;
+            background: #ffffff;
             margin-top:20px;
         }
         .container{/*중앙정렬*/
@@ -46,6 +46,7 @@ session_start();
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
 <script src ="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 
+
 </body>
 
 <div class="container"  >
@@ -53,11 +54,20 @@ session_start();
         <div class="col">
 
 
-
 						<?php
+						$login_id=$_SESSION['loginid'];
 						$con=mysqli_connect("localhost","root","ehdgus48350","lol");
 						$idx=$_GET['idx'];
+						$cookie_value="1";
+						$cookie_name=$idx;/*게시판 번호*/
+						setcookie($cookie_name,$cookie_name,time()+(86400),"/");/* /는 전체경로에서 사용*/
+						if(!isset($_COOKIE[$cookie_name])){
+							$con=mysqli_connect("localhost","root","ehdgus48350","lol");
 
+							$sql_count_update="update lol.board set count=count+1 where idx='$cookie_name'";
+							$res2 = $con->query($sql_count_update);
+
+						}
 						$query="select * from lol.board where idx='$idx'";
 
 						$query_run=mysqli_query($con,$query);
@@ -91,22 +101,44 @@ session_start();
                                  </div>
                             <div id="bo_line2"></div>
                             <div class="container_distinction" style="display: flex;color: lightslategrey; float: right">
-                                <td>
-                                    <a href="board_edit.php?idx=<?php echo $row['idx']; ?>" class="btn btn-info" style="float: right">수정</a>
+                                echo "작성자".$writer,"세션". $_SESSION['loginid'];
+	                            <?php
 
-                                </td>
-                                <form action="/lol/board_curd_ok.php" method="post"><!--delete-->
-                                    <input type="hidden"  name="delete_idx" value="<?php echo $row['idx']; ?>" >
-                                    <input type="hidden" name="delete_hidden_image" value="<?php echo $row['img']; ?>">
-                                    <button type="submit" name="delete_image" class="btn btn-danger" style="float: right">삭제</button>
+	                           /* $login_id = "tt";
+	                            $writer = "tt";*/
+	                            if( preg_replace("/\s+/", "", $login_id) ==preg_replace("/\s+/", "", $writer) ) {?>
+                                        <!--작성자와 세션 아이뒤가 같으면,-->
+                                    <td>
+                                        <a href="board.php?idx=<?php echo $row['idx']; ?>" class="btn btn" style="float: right;background: #11ff58">게시판가기</a>
+
+                                    </td>
+                                    <td>
+                                        <a href="board_edit.php?idx=<?php echo $row['idx']; ?>" class="btn btn-info" style="float: right">수정</a>
+
+                                    </td>
+                                    <form  onsubmit="return confirm('정말 삭제하시겠습니까? 삭제하면 복구가 불가능합니다');" action="/lol/board_curd_ok.php" method="post"><!--delete-->
+                                        <input type="hidden"  name="delete_idx" value="<?php echo $row['idx']; ?>" >
+                                        <input type="hidden" name="delete_hidden_image" value="<?php echo $row['img']; ?>">
+                                        <button type="submit" name="delete_image" class="btn btn-danger" style="float: right">삭제</button>
 
 
-                                </form>
+                                    </form>
+
+	                            <?php } else { ?>
+                                    <!--작성자와 세션 아이뒤가 다르면,-->
+                                    <td>
+                                        <a href="board.php?idx=<?php echo $row['idx']; ?>" class="btn btn" style="float: right;background: #11ff58">게시판가기</a>
+
+                                    </td>
+		                            <?php
+	                            }?>
+
 
 
                             </div>
+                            <div id="bo_line"></div>
 
-            <div id="board_read" style="font-size: 20px;">
+            <div  id="board_read" style="font-size: 20px;margin-top: 20px">
 								<?php echo "내용 : {$row['content']}"; ?>
                             </div>
 
@@ -130,6 +162,8 @@ session_start();
                             </td>
 							<?php
 						}
+						echo "세션".$login_id;
+						echo "작성자".$writer;
 						?>
 
                             <!--sdfdssd-->
@@ -150,6 +184,19 @@ session_start();
 
     </div>
 
+<!--    <script>
+        function delete_check(){
+        var con_test= confirm("삭제하시겠습니까?");
+            if(con_test == true){
+            }
+            else if(con_test == false){
+            }
 
+        }
+
+
+
+
+    </script>-->
 
 </html>

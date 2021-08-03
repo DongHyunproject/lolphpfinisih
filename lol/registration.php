@@ -70,6 +70,7 @@
 
         </form>
         <div class="link">회원가입을 하셨나요?  <a href="login.php" style="color: blue">로그인하기</div>
+        <div class="link"> <a href="home.php" style="color: blue">메인페이지로 가기</div>
 
 
     </section>

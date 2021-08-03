@@ -69,8 +69,8 @@ if(isset($_SESSION['status'])) {
 
 
 						<div class="form-group">
-							<label for="">작성자</label>
-							<input type="text" name="writer"  required class="form-control" value="<?php echo $row['writer']; ?>" placeholder="전번을 입력하세요.">
+							<label for=""></label>
+							<input type="hidden" name="writer"  required class="form-control" value="<?php echo $row['writer']; ?>">
 
 						</div>
 						<div class="form-group">

@@ -9,8 +9,6 @@
 
 
 
-
-
 echo "confirm file information <br />";
 $uploaddir  = '';
 

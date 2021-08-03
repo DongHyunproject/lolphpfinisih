@@ -5,6 +5,8 @@ session_start();
 if(isset($_SESSION['status'])) {
 	unset( $_SESSION['status'] );
 }
+$writer=$_SESSION['loginid'];
+echo $_SESSION['loginid'] , $writer;
 
 ?>
 
@@ -76,17 +78,17 @@ if(isset($_SESSION['status'])) {
 							</div>-->
 
 						<div class="form-group">
-							<label for="">writer</label>
-							<input type="text" name="writer" required class="form-control" placeholder="작성자">
+							<label for=""></label>
+							<input type="hidden" name="writer"value="<?php echo $_SESSION['loginid']; ?>" required class="form-control" placeholder="작성자">
 
 						</div>
 						<div class="form-group">
 							<label for="">프로필</label>
-							<input type="file" name="profile_img" required class="form-control" >
+							<input type="file" name="profile_img"  class="form-control" >
 
 						</div>
 						<div class="form-group" style="text-align: center; margin-top: 20px">
-							<button type="submit"  name="save_image" required class="btn btn-primary">글쓰기 완료</button>
+							<button type="submit"  name="save_image"  class="btn btn-primary">글쓰기 완료</button>
 
 						</div>
 
