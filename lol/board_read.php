@@ -60,7 +60,7 @@ session_start();
 						$idx=$_GET['idx'];
 						$cookie_value="1";
 						$cookie_name=$idx;/*게시판 번호*/
-						setcookie($cookie_name,$cookie_name,time()+(86400),"/");/* /는 전체경로에서 사용*/
+						setcookie($cookie_name,$cookie_value,time()+(86400),"/");/* /는 전체경로에서 사용*/
 						if(!isset($_COOKIE[$cookie_name])){
 							$con=mysqli_connect("localhost","root","ehdgus48350","lol");
 
@@ -101,7 +101,6 @@ session_start();
                                  </div>
                             <div id="bo_line2"></div>
                             <div class="container_distinction" style="display: flex;color: lightslategrey; float: right">
-                                echo "작성자".$writer,"세션". $_SESSION['loginid'];
 	                            <?php
 
 	                           /* $login_id = "tt";
@@ -162,8 +161,6 @@ session_start();
                             </td>
 							<?php
 						}
-						echo "세션".$login_id;
-						echo "작성자".$writer;
 						?>
 
                             <!--sdfdssd-->
@@ -184,19 +181,5 @@ session_start();
 
     </div>
 
-<!--    <script>
-        function delete_check(){
-        var con_test= confirm("삭제하시겠습니까?");
-            if(con_test == true){
-            }
-            else if(con_test == false){
-            }
-
-        }
-
-
-
-
-    </script>-->
 
 </html>

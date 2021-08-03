@@ -149,7 +149,65 @@ session_start();
 
 		</div>
 	</div>
+<?php
 
+$cookiePno = $idx; // 여기서 $no는 상품번호이다.
+$i         = 0;
+if ( isset( $_COOKIE['today_view'] ) ) { // today_view라는 쿠키가 존재하면
+	$todayview = $_COOKIE['today_view']; // $todayview 변수에 today_view 쿠키를 저장한다.
+	$tod2      = explode( ",", $_COOKIE['today_view'] ); // today_view 쿠키를 ','로 나누어 구분한다.
+
+	$tod = array_reverse( $tod2 ); // 최근 목록으로 뽑기 위해 배열을 최신 것부터로 반대로 정렬해준다.
+
+
+	// 중복을 막기위한 save 변수 지정
+
+	while ( $i < sizeof( $tod ) ) { // $tod배열의 사이즈만큼 반복한다.
+
+		if ( $cookiePno == $tod[ $i ] ) {
+
+
+			$save = 'no';
+
+
+		}
+
+
+		$i ++;
+
+
+	}
+
+
+}
+
+// 저장된 쿠키값이 없을 경우 새로 쿠키를 저장하는 소스
+if ( ! isset( $_COOKIE['today_view'] ) ) {
+	setcookie( 'today_view', $cookiePno, time() + 21600, "/" );
+
+}
+
+// 저장된 쿠키값이 존재하고, 중복된 값이 아닌 경우 기존의 today_view 쿠키에 현재 쿠키를 추가하는 소스
+if ( isset( $_COOKIE['today_view'] ) ) {
+	if ( $save != 'no' ) {
+
+		setcookie( 'today_view', $todayview . "," . $cookiePno, time() + 21600, "/" );
+
+
+	}
+
+	//저장된 쿠키값이 일정량 이상이면 초기화 하는 소스
+	if ( sizeof( $tod ) > 10 ) {
+
+		setcookie( 'today_view', $todayview . "," . $tod2[0], time() - 3600, "/" );
+
+
+	}
+
+}
+
+
+?>
 </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
