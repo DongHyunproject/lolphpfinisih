@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>신작</title>
+  <script language="JavaScript">
+    function setCookie(name, value, expiredays) {
+      var date = new Date();
+      date.setDate(date.getDate() + expiredays);
+      document.cookie = escape(name) + "=" + escape(value) + "; expires=" + date.toUTCString();
+    }
+
+    function closePopup() {
+      if (document.getElementById("check").value) {
+        setCookie("popupYN", "N", 1);
+        self.close();
+      }
+    }
+  </script>
+</head>
+<body>
+
+<p style="text-align:center; font-size: 30PX  ; color: firebrick"><b>[공지사항]</b></p>
+<p style="text-align:center; font-size: 15PX ; color: black"><b>매주 새로운 롤 패치노트에 대해서 정보를 공유해주세요</b></p>
+
+<img src="/image/lol_update.PNG" style= "width:100%; height: 300px; text-align:center;  margin-top:0px"/>
+<br>
+<div style="margin-top: 50px">
+  <input type="checkbox" id="check" align="left" onclick="closePopup();">
+  <a style=" font-size: 15px">24시간 동안 다시 열람하지 않습니다.</a>
+
+</div>
+
+
+
+</body>
+</html>
+
+
+
