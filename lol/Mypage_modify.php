@@ -69,19 +69,28 @@ if(isset($_SESSION['status'])) {
                         <div class="field image"  style="text-align: center" >
 					<img src="<?php echo $row['profile_img']; ?>" style=" object-fit: cover;border-radius: 50%;"   width="300px" height="300px" alt="image가 없습니다">
 
-                            <label style="margin-top: 30px">프로필 이미지:
-                                <input type="file" name="profile_img" ></label>
+                            <label style="margin-top: 30px">
+                              </label>
                         </div>
                     <h1><?php echo "나의 아이뒤 :  $loginid"; ?></h1>
 
 					<form action="Mypage_modify_ok.php" method="post"  enctype="multipart/form-data">
-						<div class="form-group">
-							<label for="">이메일</label>
-							<input type="text" name="email"  class="form-control" value="<?php echo $row['email']; ?>" >
+                        <div style="text-align: center">
+                        변경할 프로필 이미지: <input style="text-align: center" type="file" name="profile_img" >
 
-						</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">이메일:</label>
+
+                        </div>
+                            <input type="text" name="email"  class="form-control" value="<?php echo $row['email']; ?>" >
+                        <input type="hidden" name="image_old" value="<?php echo $row['profile_img']; ?>">
+
+
+
                         비밀번호:
-                        <input type="text" name="password"  class="form-control" >
+                        <input type="password" name="password"  class="form-control" >
 
 
 				<div class="form-group" style="text-align: center; margin-top: 20px">

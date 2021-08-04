@@ -22,6 +22,7 @@ if(isset($_POST['save_image'])){
 
 	$img=$_FILES['profile_img']['name'];
 	$image_path="upload/".$img;
+	$image_path_base="profile55.png";
 	$write_date=date("Y-m-d h:i:s");
 
 	/* 이미지 확장자 'glf','png','jpg','jpeg' 만 허용 */

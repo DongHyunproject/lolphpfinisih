@@ -122,13 +122,15 @@ session_start();
 							<a href="Mypage_modify.php" class="btn btn-info" style="float: right">수정</a>
 
 						</td>
-						<form  onsubmit="return confirm('정말 삭제하시겠습니까? 삭제하면 복구가 불가능합니다');" action="/lol/board_curd_ok.php" method="post"><!--delete-->
-							<input type="hidden"  name="delete_idx" value="<?php echo $row['idx']; ?>" >
-							<input type="hidden" name="delete_hidden_image" value="<?php echo $row['img']; ?>">
+                        <!--delete-->
+
+					<!--	<form  onsubmit="return confirm('정말 삭제하시겠습니까? 삭제하면 복구가 불가능합니다');" action="/lol/board_curd_ok.php" method="post">
+							<input type="hidden"  name="delete_idx" value="<?php /*echo $row['idx']; */?>" >
+							<input type="hidden" name="delete_hidden_image" value="<?php /*echo $row['img']; */?>">
 							<button type="submit" name="delete_image" class="btn btn-danger" style="float: right">삭제</button>
 
 
-						</form>
+						</form>-->
 						<?php
 					}?>
 
