@@ -10,7 +10,7 @@ if(isset($_POST['update_image'])){
 
 	$new_image=$_FILES['profile_img']['name'];
 	$old_image=$_POST['image_old'];
-	$new_image_path="upload/".$new_image;
+	$new_image_path="./upload/".$new_image;
 
 	if(!empty($loginid)&&!empty($password_hash)){
 		$sql=mysqli_query($con, "SELECT * FROM lol.member where loginid='{$loginid}' AND password='{$password_hash}'");
@@ -27,7 +27,7 @@ if(isset($_POST['update_image'])){
 					$update_filename=$old_image;
 
 				}
-				$query_update="UPDATE lol.member SET email='$email',signup_update='$update_date', profile_img='$new_image_path' where loginid='$loginid'";
+				$query_update="UPDATE lol.member SET email='$email',signup_update='$update_date', profile_img='$update_filename' where loginid='$loginid'";
 				$query_update_run=mysqli_query($con,$query_update);
 
 				if($query_update_run){

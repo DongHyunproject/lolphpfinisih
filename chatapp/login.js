@@ -2,7 +2,7 @@ const form=document.querySelector('.login form'),
     continueBtn = form.querySelector('.button input'),
     errorText = form.querySelector('.error-text');
 
-;
+
 
 
 form.onsubmit =(e)=>{
@@ -10,7 +10,7 @@ form.onsubmit =(e)=>{
 }
 
 continueBtn.onclick=()=>{
-    let xhr=new XMLHttpRequest();/*xml 파일 만들기*/
+    let xhr=new XMLHttpRequest();/*xml 객체 만들기*/
     xhr.open("POST","login_ok.php",true);
     xhr.onload=()=>{
         if (xhr.readyState===XMLHttpRequest.DONE){

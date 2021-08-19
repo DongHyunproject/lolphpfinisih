@@ -44,6 +44,8 @@ session_start();
     <li><a href="/lol/home.php">Home</a></li>
 	<li><a href="/lol/board.php">community</a></li>
 	<li><a href="/lol/Mypage.php">Mypage</a></li>
+    <li><a href="/lol/riot_news_api.php">News</a></li>
+
     <?php if((!isset($_SESSION['loginid'])) && (!isset($_SESSION['email'])) ) {?>
 
     <li style="float:right"><a class="active" href="/lol/registration.php">회원가입</a></li>

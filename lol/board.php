@@ -9,18 +9,18 @@ session_start();
 <html lang="en">
 <head>
 
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Bootstrap CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
-	<title>Hello, world!</title>
+    <title>Hello, world!</title>
 </head>
 <style>
     /*
@@ -47,115 +47,50 @@ session_start();
 
 <body>
 
-<div  class="container">
 
-	<?php if((!isset($_SESSION['loginid'])) && (!isset($_SESSION['email'])) ) {?>
 
-	<?php  } else {?>
+<?php if((!isset($_SESSION['loginid'])) && (!isset($_SESSION['email'])) ) {?>
+
+<?php  } else {?>
     <button style="float: right; margin-right: " onclick="location.href='board_create.php'"  name="create_button" class="btn btn-success" >글쓰기</button>
-	<?php  }
+<?php  }
 ?>
 
-<div class="container " style="margin-top: 100px; width:1000px " >
-	<div class="row">
-		<div class="col-md-12">
+
+<?php echo $_SESSION['status'];  ?>
+
+<?php
+$con=mysqli_connect("localhost","root","ehdgus48350","lol");
+$query="select * from lol.board order by idx desc ";
+$query_run=mysqli_query($con,$query);
 
 
-					<h4 class="text">게시판
-                        <?php echo $_SESSION['status'];  ?>
-                    </h4>
-					<?php
-					$con=mysqli_connect("localhost","root","ehdgus48350","lol");
-					$query="select * from lol.board order by idx desc ";
-					$query_run=mysqli_query($con,$query);
-
-
-					?>
-					<table class="table">
-						<thead>
-						<tr  style="text-align: center">
-                            <th  width="10%">글번호</th>
-                            <th width="10%"> 이미지</th>
-                            <th width="30%">제    목</th>
-                            <th width="20%">작성자</th>
-                            <th width="20%">작성일시</th>
-
-                            <th width="10%">조회수</th>
-
-
-                            <!--	<th>edit</th>
-								<th>delete</th>-->
-
-						</tr>
-						</thead>
-						<tbody>
+?>
 
 
 
-						<?php
-						if(mysqli_num_rows($query_run)>0){
-							foreach ($query_run as $row){
-							    $idx=$row['idx'];
-								?>
-								<tr style="text-align: center; font-size: 15px;">
-									<td  width="10%"><?php echo $row['idx']; ?></td>
-                                    <td width="10%">
-                                        <img src="<?php echo $row['img']; ?>" width="100" height="100" alt="image">
 
-                                    </td>
-                                    <td width="30%"><a href="/lol/board_read.php?idx=<?php echo $row['idx']; ?>"> <?php echo $row['title']; ?></a></td>
-									<td width="20%"><?php echo $row['writer']; ?></td>
-                                    <td width="20%"><?php echo $row['wrtie_date']; ?></td>
+<?php
+if(mysqli_num_rows($query_run)>0){
+	foreach ($query_run as $row){
+		$idx=$row['idx'];
+		?>
 
 
+		<?php
 
-                                    <td width="10%"><?php echo $row['count']; ?></td>
-									<!--                                    <td><?php /*echo $row['stud_image']*/?></td>
--->
+	}
+}else {
+	?>
 
-								<!--	<td width="100px" >
-										<a href="edit.php?id=<?php /*echo $row['id']; */?>" class="btn btn-info">edit</a>
+	<?php
+}
 
-									</td width="100px">
-									<td>
-										<form action="code.php" method="post">
-                                           삭제
-											<input type="hidden"  name="delete_id" value="<?php /*echo $row['id']; */?>" >
-											<input type="hidden" name="del_stud_image" value="<?php /*echo $row['stud_image']; */?>">
-											<button type="submit" name="delete_stud_image" class="btn btn-danger">delete</button>
+?>
 
-
-										</form>
-
-									</td>-->
-
-								</tr>
-
-
-								<?php
-
-							}
-						}else {
-							?>
-							<tr>
-								<td>해당 데이터가 없습니다.</td>
-							</tr>
-							<?php
-						}
-
-						?>
-						</tbody>
-
-
-					</table>
-
-
-
-		</div>
-	</div>
 <?php
 
-$cookiePno = $idx; // 여기서 $no는 상품번호이다.
+$cookiePno = $idx; // 여기서 $no는 게시판번호이다.
 $i         = 0;
 if ( isset( $_COOKIE['today_view'] ) ) { // today_view라는 쿠키가 존재하면
 	$todayview = $_COOKIE['today_view']; // $todayview 변수에 today_view 쿠키를 저장한다.
@@ -212,21 +147,38 @@ if ( isset( $_COOKIE['today_view'] ) ) {
 
 
 ?>
-</div>
-    <!-- 페이징-->
+
+<!-- 페이징-->
 <script>
-    $(document).ready(function (){
-        function load_data(page,query='')
+    $(document).ready(function(){
+
+        load_data(1);
+
+        function load_data(page, query = '')
         {
             $.ajax({
-                url:"fecch.php"
+                url:"board_fetch.php",
                 method:"POST",
-                data:{page:page,query:query},
-                success:function (data){
-                    $('#dynmic_content').html(data);
+                data:{page:page, query:query},
+                success:function(data)
+                {
+                    $('#dynamic_content').html(data);
                 }
-            })
+            });
         }
+
+        $(document).on('click', '.page-link', function(){
+            var page = $(this).data('page_number');
+            var query = $('#search_box').val();
+            load_data(page, query);
+        });
+
+
+
+        $('#search_box').keyup(function(){
+            var query = $('#search_box').val();
+            load_data(1, query);
+        });
 
     });
 </script>
@@ -235,10 +187,11 @@ if ( isset( $_COOKIE['today_view'] ) ) {
 <!--ajax를 이용한 검색-->
 
 <div class="form-group">
-    <input type="text" name="search_box" id="search_box" class="form-control" placeholder="찾을 제목을 쓰세요"
-
+    <input type="text" style="width: 500px; float: right; margin-right: 50px" name="search_box" id="search_box" class="form-control" placeholder="찾을 제목을 쓰세요"
+<!--ajax로 실시간 검색결과 or 전체 데이터들을 보여줌-->
 </div>
-<div id="dynmic_content" class="table_responsive"></div>
+<div id="dynamic_content" class="table_responsive"></div>
+
 <!-- search 뷰 -->
 <!--<div class="search_box"  style="text-align: center; /*margin-right: 60px; */margin-top: 50px; margin-bottom: 200px">
     <form action="/lol/search_ok.php" method="get">
