@@ -26,7 +26,7 @@
 
 
 			<div class="field input">
-				<label>아이뒤
+				<label>아이디
 					<input type="text" name="loginid" placeholder="이메일을 입력하세요"> </label>
 			</div>
 			<div class="field input">

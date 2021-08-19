@@ -61,11 +61,6 @@ session_start();
 
 
 
-				$con=mysqli_connect("localhost","root","ehdgus48350","lol");
-
-
-
-
 			$query="select * from lol.member where loginid='$loginid'";
 
 			$query_run=mysqli_query($con,$query);
@@ -98,10 +93,10 @@ session_start();
 					<div id="board_read">
 						<?php /*echo "작성일시 : {$row['wrtie_date']}"; */?>
 					</div>
-
+v
 				</div>-->
 				<div id="bo_line2"></div>
-                <h1><?php echo "나의 아이뒤 :  $loginid"; ?></h1>
+                <h1><?php echo "나의 아이디 :  $loginid"; ?></h1>
                 <h1><?php echo "가입일시 :  $signup_date"; ?></h1>
                 <h1><?php echo "email:  $email"; ?></h1>
 

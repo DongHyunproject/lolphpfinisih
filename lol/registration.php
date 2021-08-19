@@ -25,7 +25,7 @@
             <!--            <div class="error-text"></div>
 			-->         <!--   <div class="name-details">-->
                 <div class="field input">
-                    <label>아이뒤 :
+                    <label>아이디 :
                         <input type="text" name="loginid" id="loginid" oninput="check_loginid()" placeholder="이름을 입력하세요" required>
                         <span id="check_loginid"></span>
                     </label>
