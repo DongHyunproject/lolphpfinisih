@@ -91,7 +91,7 @@ if($isuser==1){
 						}
 
 					} else {/*이미지 없을 경우*/
-						$image_path='';
+						$image_path='profile55.png';
 						$query = "INSERT INTO lol.member
     ( loginid, password, profile_img, signup_date, isuser,email)
     values ('$loginid','$password_hash','$image_path','$write_date','$isuser','$email')";

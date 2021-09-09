@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 $con=mysqli_connect("localhost","root","ehdgus48350","lol");
@@ -8,7 +9,7 @@ if(isset($_POST['update_image'])){
 	$loginid=$_SESSION['loginid'];
 	$update_date=date("Y-m-d h:i:s");
 
-	$new_image=$_FILES['profile_img']['name'];
+	$new_image=$_FILES['new_image']['name'];
 	$old_image=$_POST['image_old'];
 	$new_image_path="./upload/".$new_image;
 
@@ -22,7 +23,7 @@ if(isset($_POST['update_image'])){
 			if(isset($_SESSION['loginid'])&& isset($_SESSION['loginid'])){
 
 				if($new_image!=''){
-					$update_filename=$_FILES['profile_img']['name'];
+					$update_filename=$_FILES['new_image']['name'];
 				}else {
 					$update_filename=$old_image;
 
@@ -31,8 +32,8 @@ if(isset($_POST['update_image'])){
 				$query_update_run=mysqli_query($con,$query_update);
 
 				if($query_update_run){
-					if($_FILES['profile_img']['name']!=''){
-						move_uploaded_file($_FILES["new_image"]["tmp_name"],$new_image_path);
+					if($_FILES['new_image']['name']!=''){
+						move_uploaded_file($_FILES["new_image"]["tmp_name"],$new_image);
 						unlink("upload/".$old_image);
 					}
 
@@ -94,7 +95,6 @@ if(isset($_POST['delete_image'])){
     alert('삭제를 실패했습니다.');
     location.href='board.php';</script>";
 		/*
-
 				$_SESSION['status']="삭제를 실패했습니다.";
 				header('Location: board.php');*/
 	}

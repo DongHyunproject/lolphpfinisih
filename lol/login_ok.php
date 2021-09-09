@@ -15,7 +15,12 @@ if(!empty($loginid)&&!empty($password)){
 		$_SESSION['loginid']=$loginid;
 		$_SESSION['email']=$row['email'];
 
+
 		if(isset($_SESSION['loginid'])&& isset($_SESSION['email'])){
+
+			$status="Active now";
+			mysqli_query($connection,"UPDATE lol.member SET status='{$status}' where loginid='{$loginid}'");
+
 			echo "로그인 성공했습니다";
                    }else {
                        echo "세션문제가 발생했습니다. ".$_SESSION['email'].$_SESSION['loginid'];

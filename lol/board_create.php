@@ -6,7 +6,6 @@ if(isset($_SESSION['status'])) {
 	unset( $_SESSION['status'] );
 }
 $writer=$_SESSION['loginid'];
-echo $_SESSION['loginid'] , $writer;
 
 ?>
 

@@ -6,7 +6,7 @@ const form=document.querySelector('.login form'),
 
 
 form.onsubmit =(e)=>{
-    e.preventDefault();/*제출한것으로부터 양식 막기*/
+    e.preventDefault();
 }
 
 continueBtn.onclick=()=>{
@@ -23,7 +23,7 @@ continueBtn.onclick=()=>{
                 if (data==="로그인 성공했습니다"){
                     /*로그인 성공한 경우*/
                     alert(data);
-                    location.href = "chat.php";/*채팅창으로 이동*//*todo*/
+                    location.href = "/chatapp/users.php";/*채팅창으로 이동*//*todo*/
 
 
                 }else {

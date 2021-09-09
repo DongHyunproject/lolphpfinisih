@@ -361,14 +361,13 @@ break-word: 강제로 끊어서 줄바꿈 함
 
 .incoming .details {
 margin-left: 5px;
+    max-width:80%;
 }
 
 .incoming .details p {
     background: black;
     color: white;
     margin-right: auto;
-    max-width: -webkit-calc(100% - 130px);
-
     border-radius: 18px 18px 18px 18px;
 }
 

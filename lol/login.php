@@ -20,14 +20,14 @@
 
 <div class="wrapper">
 	<section class="form login">
-		<header>LOL Community 회원가입 </header>
+		<header>LOL Community 로그인 </header>
 		<form action="login_ok.php" method="post" enctype="multipart/form-data" >
 			<!--	<div class="error-text"></div>-->
 
 
 			<div class="field input">
 				<label>아이디
-					<input type="text" name="loginid" placeholder="이메일을 입력하세요"> </label>
+					<input type="text" name="loginid" placeholder="아아디를 입력하세요"> </label>
 			</div>
 			<div class="field input">
 				<label>비밀번호

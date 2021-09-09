@@ -84,12 +84,12 @@ if(!empty($_POST['password'])){
 if(!empty($_POST['email'])){
 	$email_check=$_POST['email'];
 	if(filter_var( $email_check, FILTER_VALIDATE_EMAIL )){
-		echo "<span style='color:green'>$email_check(은/는) 사용가능한 이메일 형식입니다.</span>";
+		echo "<span style='color:green'>(은/는) 사용가능한 이메일 형식입니다.</span>";
 		echo "<script>$('#submit').prop('disabled',false);</script>";
 
 
 	}else {
-		echo "<span style='color:red'>$email_check(은/는) 이메일형식이 아닙니다.</span>";
+		echo "<span style='color:red'>(은/는) 이메일형식이 아닙니다.</span>";
 		echo "<script>$('#submit').prop('disabled',true);</script>";
 	}
 

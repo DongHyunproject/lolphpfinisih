@@ -1,4 +1,9 @@
+<?php
+session_start();
 
+$test="로그인화면에서 세션아이뒤";
+console.log($test.$_SESSION['unique_id']);
+?>
 
 <!DOCTYPE html>
 

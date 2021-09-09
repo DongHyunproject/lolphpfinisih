@@ -188,10 +188,9 @@ if ( isset( $_COOKIE['today_view'] ) ) {
 
 <div class="form-group">
     <input type="text" style="width: 500px; float: right; margin-right: 50px" name="search_box" id="search_box" class="form-control" placeholder="찾을 제목을 쓰세요"
-<!--ajax로 실시간 검색결과 or 전체 데이터들을 보여줌-->
+
 </div>
 <div id="dynamic_content" class="table_responsive"></div>
-
 <!-- search 뷰 -->
 <!--<div class="search_box"  style="text-align: center; /*margin-right: 60px; */margin-top: 50px; margin-bottom: 200px">
     <form action="/lol/search_ok.php" method="get">

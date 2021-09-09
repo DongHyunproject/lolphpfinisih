@@ -1,4 +1,11 @@
 <?php
+
+session_start();
+if(!isset($_SESSION['email'])){
+	header("location:login.php");
+
+}
+
 ?>
 <!DOCTYPE html>
 
@@ -18,64 +25,50 @@
 <div class="wrapper">
 	<section class="chat-area">
 		<header>
-            <a href="#" class="back-icon"><i class="fas fa-arrow-left"></i> </a><!--뒤로가기 빽 버튼-->
-				<img src="/image/yaso.png" alt="">
+			<?php
+
+
+			$email=$_GET['email'];
+
+			$connection=mysqli_connect("localhost", "root","ehdgus48350","chatapp");
+			$user_id=mysqli_real_escape_string($connection,$_GET['email']);
+			$sql=mysqli_query($connection, "SELECT * FROM chatapp.users where email='$email'");
+			if(mysqli_num_rows($sql)>0){
+				$row=mysqli_fetch_assoc($sql);
+
+			}else {
+    echo "데이터가 없습니다";
+   }
+
+			?>
+            <a href="layout_users.php" class="back-icon"><i class="fas fa-arrow-left"></i> </a><!--뒤로가기 빽 버튼-->
+				<img src="<?php echo $row['img']?>" alt="">
 				<div class="details">
-					<span>이름</span>
-					<p> 활동 중</p>
+                    <span><?php echo $row['fname']. "" .$row['lname'] ?></span>
+
 				</div>
 
 	      	</header>
               <div class="chat-box">
-                      <div class="chat outgoing">
-                          <div class="details">
-                              <p> 내가 보낸 채팅 내용 내가 보낸 채팅 내용내가 보낸 채팅 내용내가 보낸 채팅 내용 </p>
-                          </div>
-                      </div>
 
-                  <div class="chat incoming">
-                      <img src="/image/kaisa.jpg" alt="">
-                      <div class="details">
-                          <p>상대방이 보내는 채팅 내용 상대방이 보내는 채팅 내용 상대방이 보내는 채팅 내용 상대방이 보내는 채팅 내용 상대방이 보내는 채팅 내용 </p>
-                      </div>
-                  </div>
 
-                  <div class="chat outgoing">
-                      <div class="details">
-                          <p> 내가 보낸 채팅 내용 내가 보낸 채팅 내용내가 보낸 채팅 내용내가 보낸 채팅 내용 </p>
-                      </div>
-                  </div>
-
-                  <div class="chat incoming">
-                      <img src="/image/kaisa.jpg" alt="">
-                      <div class="details">
-                          <p>상대방이 보내는 채팅 내용 상대방이 보내는 채팅 내용 상대방이 보내는 채팅 내용 상대방이 보내는 채팅 내용 상대방이 보내는 채팅 내용 </p>
-                      </div>
-                  </div>        <div class="chat outgoing">
-                      <div class="details">
-                          <p> 내가 보낸 채팅 내용 내가 보낸 채팅 내용내가 보낸 채팅 내용내가 보낸 채팅 내용 </p>
-                      </div>
-                  </div>
-
-                  <div class="chat incoming">
-                      <img src="/image/kaisa.jpg" alt="">
-                      <div class="details">
-                          <p>상대방이 보내는 채팅 내용 상대방이 보내는 채팅 내용 상대방이 보내는 채팅 내용 상대방이 보내는 채팅 내용 상대방이 보내는 채팅 내용 </p>
-                      </div>
-                  </div>
 
               </div>
-        <form action="#" class="typing-area">
-            <input type="text" placeholder="메시지를 입력하세요">
+        <form action="#" class="typing-area" autocomplete="off">
+            <input type="text" name="outgoing_id" value="<?php echo $_SESSION['unique_id'] ?>" hidden>
+            <input type="text" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
+
+            <input type="text" name="message" class="input-field" placeholder="메시지를 쓰세요" >
             <button class="message-submit-button" > 제출</button>
 
         </form>
 
-        </form>
 	</section>
 
 </div>
 <script src="pass-show-hide.js"></script>
+<script src="chat.js"></script>
+
 </body>
 
 </html>

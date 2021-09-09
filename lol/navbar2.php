@@ -44,7 +44,9 @@ session_start();
     <li><a href="/lol/home.php">Home</a></li>
 	<li><a href="/lol/board.php">community</a></li>
 	<li><a href="/lol/Mypage.php">Mypage</a></li>
-    <li><a href="/lol/riot_news_api.php">News</a></li>
+    <li><a href="/lol/news/test2.php">LOL News</a></li>
+    <li><a href="/lol/chat/layout_users.php">chat</a></li>
+
 
     <?php if((!isset($_SESSION['loginid'])) && (!isset($_SESSION['email'])) ) {?>
 
@@ -57,7 +59,10 @@ session_start();
 
         <li style="float:right"><a class="active" href="/lol/logout.php">로그아웃</a></li>
 
-    <?php  echo $_SESSION['loginid'];
+    <?php
+
+
+
     }?>
 </ul>
 
